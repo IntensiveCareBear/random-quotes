@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +11,8 @@
          */
         body {
             font-family: serif;
-            background-color: #ffffff;
-            /* White background */
-            color: #000000;
-            /* Black text */
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
             margin: 0;
             padding: 2rem;
             display: flex;
@@ -46,13 +43,8 @@
 
         /* Basic animation to make it feel a bit more alive */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .quote {
@@ -60,7 +52,6 @@
         }
     </style>
 </head>
-
 <body>
 
     <div class="quote-container">
@@ -69,47 +60,21 @@
     </div>
 
     <script>
-        // The previous error was caused by a fetch call to a local file.
-        // To fix this and make the plugin self-contained, we will embed the quotes directly.
+        // Quotes embedded directly in the JavaScript to avoid file fetching issues.
         const quotes = [
-            {
-                "text": "Kiełbasy do góry i golimy frajerów!",
-                "author": "Janusz 'Wujo' Wójcik"
-            },
-            {
-                "text": "Kasa misiu, kasa.",
-                "author": "Janusz 'Wujo' Wójcik"
-            },
-            {
-                "text": "Prezesie, tu nie ma co trenować, tu dzwonić trzeba.",
-                "author": "Janusz 'Wujo' Wójcik"
-            },
-            {
-                "text": "Alkohol był, jest i będzie na zgrupowaniach kadry.",
-                "author": "Janusz 'Wujo' Wójcik"
-            },
-            {
-                "text": "Jeśli nie wiesz co zrobić na boisku, to najlepiej podaj do mnie.",
-                "author": "Andrzej Iwan"
-            },
-            {
-                "text": "Gdybym był o metr niższy, byłbym najlepszym zawodnikiem w historii polskiej piłki.",
-                "author": "Zdzisław Kręcina"
-            },
-            {
-                "text": "Futbol to prosta gra. Wygrywa ten, kto strzeli więcej goli.",
-                "author": "Andrzej Strejlau"
-            },
-            {
-                "text": "Dopóki piłka w grze, wszystko jest możliwe.",
-                "author": "Andrzej Strejlau"
-            }
-    {
-                "text": "Głupi się zastanawia, mądry napierdala.",
-                "author": "Antoni Piechniczek"
-            }
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle Onassis" },
+            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { text: "Get busy living or get busy dying.", author: "Stephen King" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "What you get by achieving your goals is not as important as what you become by achieving your goals.", author: "Zig Ziglar" },
+            { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
+            { text: "The secret of getting ahead is getting started.", author: "Mark Twain" }
         ];
 
+        // This function will display a random quote.
         function displayRandomQuote() {
             // Get a random index from the quotes array.
             const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -119,15 +84,20 @@
             const quoteTextElement = document.getElementById('quote-text');
             const quoteAuthorElement = document.getElementById('quote-author');
 
-            // Update the text content of the elements.
-            quoteTextElement.textContent = `“${randomQuote.text}”`;
-            quoteAuthorElement.textContent = `- ${randomQuote.author}`;
+            // Check if elements exist before trying to update them.
+            if (quoteTextElement && quoteAuthorElement) {
+                // Update the text content of the elements.
+                quoteTextElement.textContent = `“${randomQuote.text}”`;
+                quoteAuthorElement.textContent = `- ${randomQuote.author}`;
+            } else {
+                console.error("Could not find quote elements. Make sure the HTML is loaded correctly.");
+            }
         }
 
-        // Call the function when the page loads.
-        window.onload = displayRandomQuote;
+        // We use DOMContentLoaded to ensure the script runs only after the
+        // HTML elements are fully loaded, which prevents a blank screen.
+        document.addEventListener('DOMContentLoaded', displayRandomQuote);
     </script>
 
 </body>
-
 </html>
