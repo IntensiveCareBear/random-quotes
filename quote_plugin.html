@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote</title>
+    <style>
+        /*
+         * Simple, high-contrast styling for e-ink displays.
+         * Using a serif font for a classic, readable look.
+         */
+        body {
+            font-family: serif;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 90%;
+            /* Using a large font size suitable for e-ink */
+            font-size: 2.5rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .author {
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            text-align: right;
+            border-top: 2px solid #000;
+            padding-top: 0.5rem;
+        }
+
+        /* Basic animation to make it feel a bit more alive */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quote {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-container">
+        <div id="quote-text" class="quote"></div>
+        <div id="quote-author" class="author"></div>
+    </div>
+
+    <script>
+        // The previous error was caused by a fetch call to a local file.
+        // To fix this and make the plugin self-contained, we will embed the quotes directly.
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle Onassis" },
+            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { text: "Get busy living or get busy dying.", author: "Stephen King" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "What you get by achieving your goals is not as important as what you become by achieving your goals.", author: "Zig Ziglar" },
+            { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
+            { text: "The secret of getting ahead is getting started.", author: "Mark Twain" }
+        ];
+
+        function displayRandomQuote() {
+            // Get a random index from the quotes array.
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+            // Get the HTML elements to display the quote.
+            const quoteTextElement = document.getElementById('quote-text');
+            const quoteAuthorElement = document.getElementById('quote-author');
+
+            // Update the text content of the elements.
+            quoteTextElement.textContent = `“${randomQuote.text}”`;
+            quoteAuthorElement.textContent = `- ${randomQuote.author}`;
+        }
+
+        // Call the function when the page loads.
+        window.onload = displayRandomQuote;
+    </script>
+
+</body>
+</html>
