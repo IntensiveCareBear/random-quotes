@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,10 @@
          */
         body {
             font-family: serif;
-            background-color: #ffffff; /* White background */
-            color: #000000; /* Black text */
+            background-color: #ffffff;
+            /* White background */
+            color: #000000;
+            /* Black text */
             margin: 0;
             padding: 2rem;
             display: flex;
@@ -43,8 +46,13 @@
 
         /* Basic animation to make it feel a bit more alive */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .quote {
@@ -52,6 +60,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="quote-container">
@@ -63,16 +72,42 @@
         // The previous error was caused by a fetch call to a local file.
         // To fix this and make the plugin self-contained, we will embed the quotes directly.
         const quotes = [
-            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle Onassis" },
-            { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
-            { text: "Get busy living or get busy dying.", author: "Stephen King" },
-            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-            { text: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
-            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-            { text: "What you get by achieving your goals is not as important as what you become by achieving your goals.", author: "Zig Ziglar" },
-            { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
-            { text: "The secret of getting ahead is getting started.", author: "Mark Twain" }
+            {
+                "text": "Kiełbasy do góry i golimy frajerów!",
+                "author": "Janusz 'Wujo' Wójcik"
+            },
+            {
+                "text": "Kasa misiu, kasa.",
+                "author": "Janusz 'Wujo' Wójcik"
+            },
+            {
+                "text": "Prezesie, tu nie ma co trenować, tu dzwonić trzeba.",
+                "author": "Janusz 'Wujo' Wójcik"
+            },
+            {
+                "text": "Alkohol był, jest i będzie na zgrupowaniach kadry.",
+                "author": "Janusz 'Wujo' Wójcik"
+            },
+            {
+                "text": "Jeśli nie wiesz co zrobić na boisku, to najlepiej podaj do mnie.",
+                "author": "Andrzej Iwan"
+            },
+            {
+                "text": "Gdybym był o metr niższy, byłbym najlepszym zawodnikiem w historii polskiej piłki.",
+                "author": "Zdzisław Kręcina"
+            },
+            {
+                "text": "Futbol to prosta gra. Wygrywa ten, kto strzeli więcej goli.",
+                "author": "Andrzej Strejlau"
+            },
+            {
+                "text": "Dopóki piłka w grze, wszystko jest możliwe.",
+                "author": "Andrzej Strejlau"
+            }
+    {
+                "text": "Głupi się zastanawia, mądry napierdala.",
+                "author": "Antoni Piechniczek"
+            }
         ];
 
         function displayRandomQuote() {
@@ -94,4 +129,5 @@
     </script>
 
 </body>
+
 </html>
